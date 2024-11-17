@@ -1,8 +1,14 @@
+# Adicione a linha a seguir
+from django.contrib.auth.decorators import login_required
+# Até aqui
 from django.shortcuts import render , redirect
 from loja.models import Produto,Fabricante, Categoria
 from datetime import timedelta, datetime
 from django.utils import timezone
 from django.core.files.storage import FileSystemStorage
+# Adicione a linha a seguir
+@login_required
+# Até aqui
 
 def list_produto_view(request, id=None):
     produto = request.GET.get("produto")
